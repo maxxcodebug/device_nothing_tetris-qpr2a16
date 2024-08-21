@@ -199,7 +199,8 @@ PRODUCT_PACKAGES += \
 # Graphics shims
 PRODUCT_PACKAGES += \
     libprocessgroup_shim \
-    libbase_shim
+    libbase_shim \
+    libcamera_metadata_shim
 
 # DRM
 PRODUCT_PACKAGES += \
