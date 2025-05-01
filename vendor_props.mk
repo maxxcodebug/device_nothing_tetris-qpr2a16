@@ -218,6 +218,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.hwcomposer=mtk_common \
     ro.hardware.vulkan=mali \
     ro.opengles.version=196610 \
+    ro.surface_flinger.support_kernel_idle_timer=true \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
     ro.surface_flinger.has_HDR_display=true \
     ro.surface_flinger.has_wide_color_display=true \
