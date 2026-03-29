@@ -105,6 +105,9 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
+# Setup dalvik vm configs
+$(call inherit-product,frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
+
 # Tinyxml
 PRODUCT_PACKAGES += \
     libtinyxml2-v34

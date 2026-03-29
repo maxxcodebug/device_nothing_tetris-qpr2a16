@@ -20,10 +20,14 @@ on init
     write /dev/blkio/blkio.prio.class none-to-rt
     write /dev/blkio/blkio.prio.class promote-to-rt
 
-    # Back to default VM settings
+    # zram
+    swapon_all /vendor/etc/fstab.enableswap
+    
+    # vm
     write /proc/sys/vm/dirty_expire_centisecs 3000
     write /proc/sys/vm/dirty_background_ratio 10
-    
+    write /proc/sys/vm/kswapd_threads 1
+
     # memory reserve tuning for GKI
     write /proc/sys/vm/min_free_kbytes 27386
     write /proc/sys/vm/lowmem_reserve_ratio "0 0 0"
@@ -132,19 +136,4 @@ on property:sys.boot_completed=1
     write /dev/sys/fs/by-name/userdata/max_io_bytes 524288
     write /dev/sys/fs/by-name/userdata/min_hot_blocks 0
 
-# 6GB and 8GB dalvik optimisatiom
-on property:ro.boot.ddr_size=6442450944
-    setprop dalvik.vm.heapstartsize 16m
-    setprop dalvik.vm.heapgrowthlimit 192m
-    setprop dalvik.vm.heapsize 384m
-    setprop dalvik.vm.heaptargetutilization 0.50
-    setprop dalvik.vm.heapminfree 8m
-    setprop dalvik.vm.heapmaxfree 32m
 
-on property:ro.boot.ddr_size=8589934592
-    setprop dalvik.vm.heapstartsize 24m
-    setprop dalvik.vm.heapgrowthlimit 256m
-    setprop dalvik.vm.heapsize 512m
-    setprop dalvik.vm.heaptargetutilization 0.46
-    setprop dalvik.vm.heapminfree 8m
-    setprop dalvik.vm.heapmaxfree 48m
