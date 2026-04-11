@@ -44,6 +44,9 @@ on charger
     write /dev/sys/fs/by-name/userdata/min_hot_blocks 0
 
 on post-fs-data
+    # Disable watermark boost
+    write /proc/sys/vm/watermark_boost_factor 0
+
     # multi-gen LRU
     write /sys/kernel/mm/lru_gen/enabled y
 
