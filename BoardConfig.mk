@@ -208,3 +208,7 @@ WIFI_FEATURE_SUPPLICANT_11AX := true
 
 # Inherit the proprietary files
 include vendor/nothing/Tetris/BoardConfigVendor.mk
+
+# Enable Raise / Pickup gestures
+BOARD_HAVE_RAISE_TO_WAKE := true
+BOARD_HAVE_PICK_UP_GESTURE := true
